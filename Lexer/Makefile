@@ -15,3 +15,6 @@ clean:
 
 run: a.out
 	    ./a.out
+	    
+run.log: a.out test.in
+	    ./a.out < test.in > run.log && vim run.log

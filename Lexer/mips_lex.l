@@ -16,17 +16,23 @@
 /*definiciones regulares*/
 letters         [A-Za-z]
 digits          [0-9]
-spaces          [ \n\t]
+spaces          [ \t]
 operator        [+\-*/=!&|^]
-delimiter       [{}()]
+delimiter       [{}(),]
+new_line        [\n]
+quote           ["]
 %%
-reg             { printf("<reserved_word>"); }
+var             { printf("<reserved_word>"); }
+if              { printf("<reserved_word>"); }
+else            { printf("<reserved_word>"); }
+while           { printf("<reserved_word>"); }
 function        { printf("<reserved_word>"); }
+return        { printf("<reserved_word>"); }
 {delimiter}     { printf("<delimiter>"); }
 ";"             { printf("<end_of_line>"); }
 {digits}*       { printf("<const>"); }
+{quote}         { printf("<quote>"); }
 {operator}      { printf("<operator>"); }
 {letters}({letters}|{digits}|"_")* { printf("<id>"); }
-(letters|digits) {printf("<unrecognized>"); }
 %%
 /*auxiliar*/

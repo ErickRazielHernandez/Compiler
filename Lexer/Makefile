@@ -17,4 +17,4 @@ run: a.out
 	    ./a.out
 	    
 run.log: a.out test.in
-	    ./a.out < test.in > run.log && vim run.log
+	    rm -f run.log && echo "\n--MIPS HIGH LEVEL LANGUAGE--\n" >> run.log && cat test.in >> run.log && echo "\n---TOKENS---\n" >> run.log && ./a.out < test.in >> run.log  echo "\n--MIPS HIGH LEVEL LANGUAGE--\n" >> run.log && cat test.in >> run.log && cat run.log | less
